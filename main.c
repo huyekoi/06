@@ -1,16 +1,32 @@
 #include <stdio.h>
 
-int square(int a)
+int combination(int n, int r)
 {
-    return a * a;
+    int result = 1;
+    int i;
+
+    for (i = 1; i <= r; i++)
+    {
+        result = result * (n - i + 1) / i;
+    }
+
+    return result;
 }
 
 int main(void)
 {
-    int a = 2;
+    int n, r;
+    int result;
 
-    a = square(a);
-    printf("a=%i\n", a);
+    printf("input n : ");
+    scanf("%i", &n);
+
+    printf("input r : ");
+    scanf("%i", &r);
+
+    result = combination(n, r);
+
+    printf("The combination result is %i\n", result);
 
     return 0;
 }
